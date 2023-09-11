@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import userRouter from './routes/users.js';
 import connectToDb from './db-utils/mongoos-connection.js';
 
@@ -10,7 +11,7 @@ await connectToDb();
 app.use(express.static('public'));
 app.use(express.json());
 app.use('/api/users',userRouter);
-
+app.use(cors());
 
 
 app.listen(PORT, () => {
