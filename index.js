@@ -8,10 +8,11 @@ const app = express();
 const PORT =process.env.PORT || 6000;
 await connectToDb();
 
+app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 app.use('/api/users',userRouter);
-app.use(cors());
+
 
 
 app.listen(PORT, () => {
